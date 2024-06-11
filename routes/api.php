@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormularioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/formularios', [FormularioController::class, 'index']);
+Route::get('/formularios/{Formulario}', [FormularioController::class, 'show']);
+Route::post('/formularios/nuevo', [FormularioController::class, 'create']);
+
+
+ 
